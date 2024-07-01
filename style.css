@@ -3,6 +3,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 body {
@@ -110,8 +111,6 @@ body {
 }
 
 .progress-text {
-  height: 100%;
-  display: block;
   margin-top: 65px;
   font-size: 24px;
   font-weight: 500;
@@ -146,4 +145,23 @@ body {
     -webkit-transform: rotate(135deg);
     transform: rotate(135deg);
   }
+}
+
+.button-section {
+  position: relative;
+}
+
+.button-section .btn-box {
+  position: absolute;
+  top: 20%;
+  left: 15%;
+}
+
+.three-dot {
+  margin-top: -38px;
+}
+
+.three-dot span {
+  font-size: 50px;
+  cursor: pointer;
 }
