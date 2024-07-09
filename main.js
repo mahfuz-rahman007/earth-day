@@ -1,3 +1,31 @@
+const JSON_DATA = {
+  "big_title" : "Tree Planting Robot Soil Panel",
+  "button1": {
+      "text": "Mr. X should test his garden soil using the NPK sensor and adjust the nutrient levels if needed before planting the mango trees. Applying the recommended fertilizers and incorporating organic matter like compost can help achieve these ideal values.",
+      "name": "Mango",
+      "soil": 60,
+      "nit": 40,
+      "pho": 70,
+      "pot": 36
+  },
+  "button2": {
+      "text": "Mr. X should test his garden soil using the NPK sensor and adjust the nutrient levels if needed before planting the apple trees. Applying the recommended fertilizers and incorporating organic matter like compost can help achieve these ideal values.",
+      "name": "Apple",
+      "soil": 40,
+      "nit": 20,
+      "pho": 90,
+      "pot": 46
+  },
+  "button3": {
+      "text": "Mr. X should test his garden soil using the NPK sensor and adjust the nutrient levels if needed before planting the orage trees. Applying the recommended fertilizers and incorporating organic matter like compost can help achieve these ideal values.",
+      "name": "Orange",
+      "soil": 70,
+      "nit": 29,
+      "pho": 65,
+      "pot": 89
+  }
+}
+
 window.addEventListener("DOMContentLoaded", () => {
   // start the animation when the element is in the page view
   const elements = [].slice.call(document.querySelectorAll(".pie"));
@@ -33,13 +61,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   $(document).ready(function () {
 
-    let jsonData;
-
-    // Get Json Data
-    $.getJSON('data.json', function(data) {
-      jsonData = data;
-    });
-
+    let jsonData = JSON_DATA;
   
     // OnClick Pie Update
     $(".dot").on("click", function (e) {
