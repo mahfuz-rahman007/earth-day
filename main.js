@@ -46,6 +46,8 @@ window.addEventListener("DOMContentLoaded", () => {
       let btn = $(this).data("attr");
 
       $('.ideal-tree').text(jsonData[btn].name);
+      $('.test-text').text(jsonData[btn].text);
+      $('.big-title').text(jsonData.big_title);
   
       // update circle when range change
       const pie = document.querySelectorAll(".pie");

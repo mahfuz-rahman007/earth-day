@@ -17,12 +17,20 @@
 
     <div class="row d-flex justify-content-center mt-100">
 
-        <div class="col-7">
+        <div class="col-7 position-relative">
+            <h1 class="big-title">Tree Planting Robot Soil Panel</h1>
+
+            <div class="d-flex align-items-center soil-percentage">
+                <div class="pie" data-type="soil"
+                    data-pie='{ "animationSmooth": "1s ease-out", "percent": 0, "colorSlice": "#2ebca2", "colorCircle": "#f1f1f1", "fontSize" : "1rem", "size" : "130", "stroke" : "14", "fontWeight" : "600" }'>
+                </div>
+                <span class="progress-text col-6 ms-4">Soil Moisture</span>
+            </div>
         </div>
 
         <div class="col-5 ps-5 pt-5">
 
-            <div class="row flex-column">
+            <div class="row flex-column mt-100">
 
                 <div class="d-flex align-items-center">
                     <div class="pie" data-type="nit"
@@ -55,7 +63,7 @@
         <div class="col-6 button-section">
             <div class="btn-box">
                 <button class="btn btn-lg btn-primary">
-                    Show
+                    Text Soil
                 </button>
                 <div class="align-items-center justify-content-center px-2 row three-dot">
                     <span class="col-4 dot" data-attr="button1">.</span>
@@ -65,9 +73,12 @@
             </div>
         </div>
         <div class="col-6 position-relative">
-            <div class="form-box d-flex">
-                <p class="ideal-text">The Ideal Tree :</p>
-                <p class="ideal-tree"></p>
+            <div class="form-box">
+                <div class="d-flex">
+                    <p class="ideal-text">The Ideal Tree :</p>
+                    <p class="ideal-tree"></p>
+                </div>
+                <p class="test-text"></p>
             </div>
         </div>
     </div>
