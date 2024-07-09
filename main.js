@@ -1,31 +1,67 @@
-let data = {
-  button1: {
-    name: "Mango",
-    nit: 40,
-    pho: 70,
-    pot: 36,
-  },
-  button2: {
-    name: "Apple",
-    nit: 20,
-    pho: 90,
-    pot: 46,
-  },
-  button3: {
-    name: "Orange",
-    nit: 29,
-    pho: 65,
-    pot: 89,
-  },
-};
+window.addEventListener("DOMContentLoaded", () => {
+  // start the animation when the element is in the page view
+  const elements = [].slice.call(document.querySelectorAll(".pie"));
+  const circle = new CircularProgressBar("pie");
+
+  // circle.initial();
+
+  if ("IntersectionObserver" in window) {
+    const config = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.75,
+    };
+
+    const ovserver = new IntersectionObserver((entries, observer) => {
+      entries.map((entry) => {
+        if (entry.isIntersecting && entry.intersectionRatio > 0.75) {
+          circle.initial(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, config);
+
+    elements.map((item) => {
+      ovserver.observe(item);
+    });
+  } else {
+    elements.map((element) => {
+      circle.initial(element);
+    });
+  }
 
 
-$('.dot').on('click', function(e) {
-    let btn = $(this).data('attr');
-    
-    $('.nit-value').text(data[btn].nit + '%');
-    $('.pho-value').text(data[btn].pho + '%');
-    $('.pot-value').text(data[btn].pot + '%');
+  $(document).ready(function () {
+
+    let jsonData;
+
+    // Get Json Data
+    $.getJSON('data.json', function(data) {
+      jsonData = data;
+    });
+
+  
+    // OnClick Pie Update
+    $(".dot").on("click", function (e) {
+      let btn = $(this).data("attr");
+
+      $('.ideal-tree').text(jsonData[btn].name);
+  
+      // update circle when range change
+      const pie = document.querySelectorAll(".pie");
+  
+      pie.forEach((el, index) => {
+        const options = {
+          index: index + 1,
+          percent: jsonData[btn][$(el).data('type')],
+        };
+        circle.animationTo(options);
+      });
+  
+    });
+
+  
+  });
 
 });
 
